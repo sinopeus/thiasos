@@ -95,6 +95,18 @@ body{
         
     }
 
+    #poster{
+        display:table;
+	margin:0 auto;
+        text-align:justify;
+        font-family:garamond,serif;
+        font-size:13px;
+        color:#333;
+        line-height:2em;
+        float:center;
+        background-color:#fff;
+    }
+    
     #content h2{
         margin:0;
         font-weight:bold;
