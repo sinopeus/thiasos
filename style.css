@@ -23,10 +23,26 @@ body{
         letter-spacing:.3em;
         /*font-weight:bold;*/
     }
+    
+    #header h4{
+        font-weight:normal;
+        margin:27px 0 0 20px;
+        font-family:georgia,times,serif;
+        font-size:13px;
+	color:#fff;
+	letter-spacing:0.4em;
+	text-align:right;
+	float:right;
+    }
+
+    #header table{
+        margin:0 15px 0 0;
+	width:100%;
+    }
 
 #menu{
     margin:0 0 0;
-    height:36px;
+    height:40px;
     background-color:#a4c2c2;
     text-align:center;
     width: 100%;
@@ -49,7 +65,7 @@ body{
     
     #menu a{
         padding:12px 0 12px 20px;
-        font:16px palatino;
+        font:20px palatino;
         font-variant:small-caps;
         color:#366;
         text-decoration:none;
@@ -143,7 +159,7 @@ body{
     margin-top:10px;
     color:#fff;
     letter-spacing:0.4em;
-    text-align: center;
+    text-align: right;
 }
 
     #footer h4{
@@ -225,6 +241,3 @@ table{
     td{
         padding:8px 10px;
     }
-
-
-
