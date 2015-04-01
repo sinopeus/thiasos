@@ -10,6 +10,12 @@ body{
     min-width:960px;
 }
 
+#map-canvas {
+    width: 500px;
+    height: 400px;
+}
+
+
 #header{
     height:60px;
 }
@@ -241,3 +247,13 @@ table{
     td{
         padding:8px 10px;
     }
+
+
+    #dionysia-table td {
+	text-align:center;
+	/* vertical-align:middle; */
+	width:68%;
+	font-size: large;
+	font-weight: bold;
+    }
+    

@@ -1,38 +1,58 @@
  <!DOCTYPE html> 
 
-<html xml:lang="nl" xmlns="http://www.w3.org/1999/xhtml" lang="nl">
+<html xml:lang="nl" lang="nl">
 <head>
   <title>Thiasos</title>
   <meta charset="utf-8"/>
-  <meta name="keywords" content="thiasos, leuven, kul, grieks, latijn, klassiek" />
-  <meta name="description" content=
-  "Thiasos, vereniging ter bewaring van de klassieke cultuur. Ontdek onze activiteiten." />
-  <link rel="stylesheet" type="text/css" href="style.css" media=
-  "screen,projection" />
-  <script src=
-  "//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"
-  type="text/javascript">
-    <script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+  <meta name="keywords" content="thiasos, kuleuven, leuven, kul, grieks, latijn, klassiek, dionysia" />
+  <meta name="description" content="Thiasos, vereniging ter bewaring van de klassieke cultuur. Ontdek onze activiteiten." />
+  <link rel="stylesheet" type="text/css" href="style.css" media="screen,projection" />
+  <script src= "//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" type="text/javascript">
+  <script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+
   <script type="text/javascript" language="javascript">
+    var pages = {
+      welkom: "",
+      aankondigingen: "",
+      activiteiten: "",
+      dionysia: "",
+      nieuwsbrief: "",
+      contact: ""
+    }
 
-function loadByHash() {
- var type = window.location.hash.substr(1);
- if (type != "") { 
-   $("#content").load(type+".php") 
- } else { 
-   $("#content").load("welkom.php")
- }
-}
+    function pushAndLoad(page) {
+      history.pushState(null,null,'#/'+page);
+      loadByHash();
+    }
+    
+    function replaceAndLoad(page) {
+      history.replaceState(null,null,'#/'+page);
+      loadByHash();
+    }
+    
+    
+    function loadByHash() {
+      var pg = window.location.hash.substr(2);
+      if (pg in pages) {
+        $("#content").load(pg+".php");
+      } else {
+        replaceAndLoad('welkom');
+      }
+    }
 
-window.addEventListener('popstate', function(event) {
-loadByHash();
-});
-</script>
+    window.addEventListener('popstate', function(event) {
+      loadByHash();
+    });
+
+    function moveWindow (section) {
+      window.location.hash=section;
+    }
+
+
+  </script>
 </head>
 
 <body onload='loadByHash();'>
-
-<body>
   <div id="fb-root"></div><script type="text/javascript">
 //<![CDATA[
       (function(d, s, id) {
@@ -54,12 +74,12 @@ loadByHash();
 
   <div id="menu">
     <ul>
-      <li><a onclick="history.pushState(null,null,'#/welkom');loadByHash();">home</a></li>
-      <li><a onclick="history.pushState(null,null,'#/aankondigingen');loadByHash();">aankondigingen</a></li>
-      <li><a onclick="history.pushState(null,null,'#/activiteiten');loadByHash();">activiteiten</a></li>
-      <li><a onclick="history.pushState(null,null,'#/dionysia');loadByHash();">dionysia</a></li>
-      <li><a onclick="history.pushState(null,null,'#/nieuwsbrief');loadByHash();">nieuwsbrief</a></li>
-      <li><a onclick="history.pushState(null,null,'#/contact');loadByHash();">contact</a></li>
+      <li><a onclick="pushAndLoad('welkom');">home</a></li>
+      <li><a onclick="pushAndLoad('aankondigingen');">aankondigingen</a></li>
+      <li><a onclick="pushAndLoad('activiteiten');">activiteiten</a></li>
+      <li><a onclick="pushAndLoad('dionysia');">dionysia</a></li>
+      <li><a onclick="pushAndLoad('nieuwsbrief');">nieuwsbrief</a></li>
+      <li><a onclick="pushAndLoad('contact');">contact</a></li>
     </ul>
   </div>
 
